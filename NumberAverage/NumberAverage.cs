@@ -16,12 +16,28 @@ namespace NumberAverage
             //call FindAverage() method to calculate average and receive string response
 
             //print the result
+            int size = Convert.ToInt32(Console.ReadLine());
+            int[] array = new int[size];
+            string input = Console.ReadLine();
+            string[] inputArray = input.Split(' ');
+            for (int i = 0; i < size; i++) 
+            {
+                array[i] = Convert.ToInt32(inputArray[i]);
+            }
+            string average = FindAverage(array);
+            Console.WriteLine(average);
         }
 
         //write here logic to calculate the average an array
-        public static String FindAverage()
+        public static String FindAverage(int[] array)
         {
-            return null;
+            int sum = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                sum += array[i];
+            }
+            double average = (double)sum / array.Length;
+            return average.ToString();
         }
     }
 }
